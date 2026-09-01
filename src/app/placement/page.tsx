@@ -1,0 +1,1 @@
+import { AppShell } from "@/components/app-shell";import { PlacementClient } from "@/components/placement/placement-client";export default function PlacementPage(){return <AppShell subtitle="3-minute diagnostic" title="Placement Test"><div className="mx-auto max-w-3xl"><PlacementClient/></div></AppShell>}

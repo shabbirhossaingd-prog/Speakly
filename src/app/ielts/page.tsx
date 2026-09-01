@@ -1,0 +1,1 @@
+import { AppShell } from "@/components/app-shell";import { IeltsClient } from "@/components/ielts/ielts-client";export default function IeltsPage(){return <AppShell subtitle="IELTS" title="Exam Practice"><IeltsClient/></AppShell>}

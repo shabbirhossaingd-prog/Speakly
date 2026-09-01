@@ -1,0 +1,1 @@
+import { AppShell } from "@/components/app-shell";import { AdminClient } from "@/components/admin/admin-client";export default function AdminPage(){return <AppShell subtitle="Role protected" title="Admin / CMS"><AdminClient/></AppShell>}

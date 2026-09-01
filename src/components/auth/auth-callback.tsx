@@ -1,0 +1,4 @@
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+export function AuthCallback(){const router=useRouter();const[message,setMessage]=useState("Finishing sign in…");useEffect(()=>{const params=new URLSearchParams(window.location.hash.replace(/^#/,""));const accessToken=params.get("access_token");const refreshToken=params.get("refresh_token");const expiresIn=Number(params.get("expires_in")||3600);if(!accessToken){setMessage("Google sign-in did not return a session. Check your Supabase redirect settings.");return;}fetch("/api/auth/session",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({accessToken,refreshToken,expiresIn})}).then(r=>{if(!r.ok)throw new Error();router.replace("/dashboard")}).catch(()=>setMessage("Could not store the login session."));},[router]);return <div className="card mx-auto mt-24 max-w-md p-8 text-center"><p className="font-semibold">{message}</p></div>}
